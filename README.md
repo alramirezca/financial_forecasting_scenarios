@@ -138,11 +138,19 @@ El **modelo Ensemble** (promedio de los tres modelos) fue el seleccionado por mo
 | Facturación  | 138.12 | 178.08  | 139.33  | **124.56** |
 | Saldo        | 126.88 | 115.04  | 135.32  | **85.29** |
 
+<p align="center">
+  <img src="img/resultado_sald.png" alt="Entrenamiento Saldo">
+</p>
+
+<p align="center">
+  <img src="img/resultado_fact.png" alt="Entrenamiento Facturacion">
+</p>
+
 Ninguno de los modelos logró alcanzar el objetivo de un error inferior al 10%. Esto se debe principalmente a la **limitada cantidad de datos históricos disponibles**.  
 Los errores podrían reducirse si se implementan:
 1. Más variables exógenas (features internas y externas adicionales).
 2. Un mayor historial de datos trimestrales.
-3. Estrategias avanzadas de **ingeniería de características** (transformaciones logarítmicas, interacciones, medias móviles, entre otras).
+3. Estrategias avanzadas de **ingeniería de características** (transformaciones logarítmicas, interacciones, medias móviles, rezagos de variables, entre otras).
 
 Estas estrategias no se aplicaron en esta fase debido al tiempo limitado y al carácter exploratorio de este ejercicio.
 

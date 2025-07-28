@@ -1,34 +1,32 @@
-# Introducción al Proyecto de Pronóstico de Cuentas Financieras
+# Pronóstico Trimestral de Cuentas Financieras – Tuya (2025–2027)
 
-## 🚀 Introducción
-El presente proyecto tiene como objetivo principal desarrollar y aplicar **modelos de pronóstico trimestral** para las cuentas de **Facturación** y **Saldo** de Tuya, abarcando los años **2025, 2026 y 2027**. 
+## 1. Introducción
+Este proyecto tiene como propósito desarrollar y aplicar **modelos de pronóstico trimestral** para las cuentas de **Facturación** y **Saldo** de Tuya durante el período **2025–2027**.
 
-Esto se realiza en el marco de las pruebas de resistencia que la compañía presenta anualmente ante la **Superintendencia Financiera de Colombia**, buscando evaluar la resiliencia de la entidad ante escenarios económicos adversos y asegurar su estabilidad, solvencia y liquidez. 
+Estos pronósticos forman parte de las pruebas de resistencia presentadas anualmente ante la **Superintendencia Financiera de Colombia**, con el objetivo de evaluar la resiliencia de la compañía frente a escenarios económicos adversos y asegurar su **estabilidad, solvencia y liquidez**.
 
-Adicionalmente, se explorarán **metodologías de estimación avanzadas** con el fin de mejorar la precisión de los pronósticos, superando las métricas exigidas por la Superintendencia y reduciendo el error por debajo del 10%.
+De manera complementaria, se exploran metodologías avanzadas de estimación para **incrementar la precisión de los modelos** y reducir los errores por debajo del 10%, mejorando el cumplimiento de los requisitos regulatorios.
 
 ---
 
-## 🏛️ Alcance del Proyecto
-El alcance de este proyecto se centra en la generación de pronósticos para las cuentas de **Facturación** y **Saldo** bajo tres escenarios distintos: 
+## 2. Alcance del proyecto
+El trabajo se centra en la generación de pronósticos para las cuentas de **Facturación** y **Saldo** bajo tres escenarios macroeconómicos:
 
-- **Base**  
-- **Adverso**  
+- **Base**
+- **Pesimista**
 - **Alterno**
 
-Estos escenarios incorporarán impactos macroeconómicos relevantes, con especial énfasis en el cumplimiento de las normativas de la Superintendencia Financiera. 
+Estos escenarios consideran impactos relevantes en variables macroeconómicas y permiten evaluar la trayectoria financiera futura de la compañía.
 
-Se analizará la relación entre los diferentes escenarios (**Escenario Base > Escenario Adverso > Escenario Alterno**) y se presentarán los resultados de manera que se visualicen claramente estas trayectorias futuras.
-
-### Expectativas del Comité
-- **+25%** en la facturación de diciembre de 2027 respecto a diciembre de 2024.
-- **−3%** en la facturación de junio de 2026 respecto a diciembre de 2025.
-- **−3%** en la facturación de junio de 2027 respecto a diciembre de 2026.
-- **+15%** en el saldo de diciembre de 2027 respecto a diciembre de 2024.
+### Expectativas clave del comité
+- **+25 %** en la facturación de diciembre de 2027 respecto a diciembre de 2024.
+- **−3 %** en la facturación de junio de 2026 respecto a diciembre de 2025.
+- **−3 %** en la facturación de junio de 2027 respecto a diciembre de 2026.
+- **+15 %** en el saldo de diciembre de 2027 respecto a diciembre de 2024.
 
 ---
 
-## 🧠 Metodología General
+## 3. Metodología general
 La metodología a seguir en este proyecto se estructurará en las siguientes fases generales las cuales se encuentran detalladas y estructuradas en los notebooks denominados con incisos similares:
 
 1. **Análisis Exploratorio de Datos (EDA)**  
@@ -43,69 +41,22 @@ La metodología a seguir en este proyecto se estructurará en las siguientes fas
 4. **Evaluación de Escenarios**  
    Finalmente, se realizará la evaluación de los modelos bajo los escenarios **Base**, **Adverso** y **Alterno**.  
    Se generarán los pronósticos trimestrales para los años 2025, 2026 y 2027, y se presentarán los resultados de manera clara y comprensible, destacando las trayectorias futuras de las cuentas de Facturación y Saldo en cada escenario.
-
-
-## 📝 Conclusiones descritas en los notebooks
-
-A partir del **Análisis Exploratorio de Datos (EDA)** realizado sobre las bases de información disponibles, se destacan los siguientes hallazgos y consideraciones relevantes para la construcción de los modelos de pronóstico:
-
 ---
 
-### Alertas Principales – Base de Datos
+## 4. Hallazgos del Análisis Exploratorio de Datos (EDA)
 
-1. **Correlaciones Altas Entre Variables**
-   - `aumento_recaudo` presenta una correlación muy alta con `dummy_colocaciones`.
-   - `desembolsos` está fuertemente correlacionado con `estrategia_credicompras` y otras dos variables.
-   - `dummy_colocaciones` muestra alta correlación con `aumento_recaudo`.
-   - `estrategia_credicompras` se encuentra altamente correlacionada con `desembolsos`.
-   - `facturacion` presenta alta correlación con `desembolsos` y otra variable adicional.
-   - `saldo` presenta alta correlación con `desembolsos` y otra variable adicional.
+### Calidad y estructura de los datos
+- Disponibilidad de **36 observaciones trimestrales** para facturación y saldo.
+- Ausencia de datos en un 25 % de las observaciones de facturación y saldo.
+- Alta correlación entre algunas variables internas, lo que obliga a un proceso riguroso de selección de características.
 
-2. **Calidad y Cantidad de Datos**
-   - `facturacion` tiene 12 valores faltantes (25% del total).
-   - `saldo` tiene 12 valores faltantes (25% del total).
-   - `desembolsos` contiene 10 valores iguales a cero (20,8% del total).
-   - Solo se dispone de **36 registros** para las variables `facturacion` y `saldo`.
+### Comportamiento histórico
+- **Facturación:** Volatilidad alta en cambios trimestrales (QoQ), con recuperación posterior a 2021.
+- **Saldo:** Comportamiento más estable y menos sensible a variaciones abruptas.
 
----
-
-### Alertas Principales – Variables Macroeconómicas
-- Se identifican **altas correlaciones entre las variables macroeconómicas**.
-- El número de observaciones disponibles para estas variables también es **36 registros**, lo cual limita el tamaño de la muestra para los análisis y los modelos.
-
----
-
-### Tendencias de Facturación y Saldos
-- La **volatilidad trimestral (QoQ)** de la facturación es elevada, con caídas pronunciadas en 2020, probablemente asociadas a factores macroeconómicos externos.
-- Desde 2021, la facturación muestra un **repunte importante**, con una tendencia a estabilizarse hacia 2023, evidenciando una fase de maduración posterior a la recuperación.
-- El **crecimiento anual (YoY)** resulta más estable y menos volátil que el QoQ, reforzando la importancia de evaluar ambas perspectivas.
-- La variable **Saldo** muestra **mayor estabilidad y menor variabilidad** frente a Facturación, lo que sugiere una mayor resiliencia a cambios abruptos en el entorno.
-
----
-
-### Análisis de Escenarios
-La definición de escenarios permite evaluar la resiliencia financiera de Tuya ante distintas condiciones económicas:
-
-- **Escenario Pesimista:** Refleja las condiciones más desfavorables y riesgosas.
-- **Escenario Base:** Representa la trayectoria central esperada bajo supuestos actuales.
-- **Escenario Optimista:** Considera una evolución más positiva que el escenario base, con mejoras graduales en las condiciones económicas.
-- **Escenario Alterno:** Proyecta el mejor comportamiento posible, donde los resultados superan las expectativas iniciales.
-
----
-
-### Correlación con Variables Macroeconómicas
-El análisis confirma una **alta dependencia de las cuentas de Facturación y Saldo respecto a las condiciones macroeconómicas**:
-
-#### Facturación
-- Fuerte correlación positiva con el **crecimiento del PIB** en todos los escenarios.
-- Correlación moderada con **inflación** y, en menor medida, con la **tasa de cambio**.
-- Correlación negativa moderada con la **tasa de desempleo**, coherente con la expectativa de que mayores niveles de desempleo reducen el consumo y afectan la facturación.
-
-#### Saldo
-- La **tasa de cambio** (en todas sus variantes) muestra la correlación más fuerte con esta variable, evidenciando la importancia de la exposición cambiaria.
-- Relación positiva significativa con **inflación** y **PIB**, aunque menos intensa que en el caso de la facturación.
-- Correlación más baja con tasas de interés (DTF, IBR, REPO), lo cual indica que estas variables tienen un impacto secundario en comparación con la tasa de cambio y el PIB.
-
+### Dependencia macroeconómica
+- La **facturación** se relaciona positivamente con el PIB y negativamente con el desempleo.
+- El **saldo** muestra mayor sensibilidad a la tasa de cambio.
 
 ### Conclusiones Finales del EDA
 
@@ -124,7 +75,9 @@ El análisis confirma una **alta dependencia de las cuentas de Facturación y Sa
   Para optimizar el aprovechamiento del histórico, se utilizará **TimeSeriesSplit** como técnica de validación cruzada.  
   Este método permite evaluar los modelos respetando la secuencia temporal de los datos y asegurando que el entrenamiento siempre se realice con información del pasado y las pruebas con datos futuros.
 
-## 🔍 Selección de Características
+---
+
+## 5. Selección de Características
 
 ### Enfoque aplicado
 En la construcción de modelos predictivos, la **selección de características** es una etapa clave para garantizar que los modelos sean robustos, eficientes y eviten el sobreajuste.  
@@ -161,126 +114,29 @@ Tras aplicar este método, se definieron los conjuntos óptimos de variables par
   - `TASA REPO`  
   - `CH2`
 
----
 
-### Beneficios obtenidos
-Este proceso permitió:
-- Reducir la **complejidad del modelo** al trabajar solo con las variables más relevantes.
-- Disminuir el riesgo de **sobreajuste** (overfitting).
-- Mejorar la **capacidad de generalización** de los modelos y aumentar la precisión de los pronósticos.
-
-
-## ⚙️ Entrenamiento de Modelos
-
-El proceso de entrenamiento de los modelos se desarrolló siguiendo una serie de pasos ordenados y metodológicos, desde la preparación de los datos hasta la generación de pronósticos finales. A continuación, se describe cada etapa:
+Este proceso reduce la complejidad y mejora la capacidad predictiva.
 
 ---
 
-## ⚙️ Entrenamiento de Modelos
+## 6. Entrenamiento de modelos
 
-El proceso de entrenamiento de los modelos se desarrolló siguiendo una serie de pasos ordenados y metodológicos, desde la preparación de los datos hasta la generación de pronósticos finales. A continuación, se describe cada etapa:
+### Procedimiento aplicado
+- Consolidación y limpieza de datos.
+- Escalado de variables predictoras y objetivos.
+- Validación cruzada temporal mediante **TimeSeriesSplit**.
+- Evaluación usando **RMSE** y posteriormente **MAPE**.
+- Optimización de hiperparámetros con Optuna
+- Selección del mejor modelo para Ridge, SARIMAX y Prophet.
+- Implementacion de un **ensemble simple (promedio)** combinando las predicciones de los tres modelos.
 
----
-
-### 1. Carga y preparación de los datos
-- Se consolidaron las diferentes fuentes de información (macroeconómicas y base interna) en un único conjunto de datos, utilizando **Fecha** como llave de integración.
-- La columna de fecha se estableció como índice principal y se ordenaron los registros cronológicamente.
-- Se calcularon las variables objetivo como los **cambios porcentuales (pct_change)** de las columnas `facturacion` y `saldo`, permitiendo modelar las variaciones relativas en lugar de los valores absolutos.
-
----
-
-### 2. Definición de features y targets
-- **Features (variables predictoras):**
-  - Para **Facturación**: `Desempleo`, `Tasa_Cambio`, `TASA REPO`, `PIB (var. % anual, nominal)`
-  - Para **Saldo**: `Desempleo`, `Tasa_Cambio`, `TASA REPO`, `CH2`
-- **Targets (variables objetivo):**
-  - `facturacion_change`
-  - `saldo_change`
-- Se eliminaron las filas con valores nulos en cualquiera de estas variables críticas, garantizando consistencia e integridad en los datos.
-
----
-
-### 3. Escalado de los datos
-- **Variables predictoras:** escaladas mediante `StandardScaler` para normalizar las magnitudes (media = 0, desviación estándar = 1).
-- **Variables objetivo:** escaladas con `MinMaxScaler` a un rango [0, 1] para favorecer la estabilidad y mejorar la interpretación de algunos algoritmos.
-
----
-
-### 4. Validación cruzada temporal
-- Se implementó **TimeSeriesSplit (3 divisiones)** para evaluar el desempeño de los modelos sin romper la secuencia temporal.
-- Este método garantiza que los datos futuros nunca se utilicen en el entrenamiento, evitando fuga de información y asegurando evaluaciones realistas.
-
----
-
-### 5. Métrica de evaluación
-- En cada división se calcula el **RMSE (Root Mean Squared Error)**.
-- Como métrica final se utiliza la **mediana de los RMSE** obtenidos, ya que es robusta frente a valores atípicos.
-
----
-
-### 6. Modelos evaluados
-Se probaron tres familias de modelos:
-
-1. **Ridge Regression**  
-   Modelo lineal regularizado (L2) para capturar relaciones lineales y controlar el sobreajuste.
-2. **SARIMAX**  
-   Modelo autorregresivo integrado con medias móviles y regresores exógenos, adecuado para series temporales con estacionalidad y tendencias.
-3. **Prophet**  
-   Modelo aditivo diseñado para series con tendencias no lineales y múltiples estacionalidades, que permite incluir regresores externos.
-
----
-
-### 7. Optimización de hiperparámetros con Optuna
-- Se utilizó **Optuna** para la búsqueda bayesiana de los hiperparámetros más adecuados para cada modelo:
-  - **Ridge Regression:**  
-    - `alpha` (grado de regularización L2)
-  - **SARIMAX:**  
-    - `p`, `d`, `q` (parámetros autorregresivos, diferenciales y de medias móviles)
-    - `seasonal_order` (componentes estacionales si aplica)
-  - **Prophet:**  
-    - `changepoint_prior_scale` (sensibilidad a cambios en la tendencia)
-    - `seasonality_prior_scale` (peso de la estacionalidad)
-
----
-
-### 8. Comparación de modelos
-- Se compararon los **RMSE** obtenidos por cada modelo para `facturacion_change` y `saldo_change`.
-- Se seleccionó el modelo con menor RMSE como el de mejor desempeño para cada target.
-- Los resultados se presentaron mediante tablas y gráficos para facilitar la interpretación.
-
----
-
-### 9. Resultados por fold
-- Además de la métrica global, se documentaron los RMSE individuales de cada fold.
-- Este análisis permite evaluar la **estabilidad y consistencia** del modelo a lo largo del tiempo.
-
----
-
-### 10. Entrenamiento final
-- El modelo seleccionado como mejor para cada target se reentrenó con **todo el histórico disponible**.
-- Con estos modelos definitivos se generaron **predicciones históricas (backtesting)** para evaluar su ajuste sobre los datos conocidos.
-
----
-
-### 11. Predicciones históricas de todos los modelos
-- También se generaron predicciones con los tres modelos (Ridge, SARIMAX y Prophet) sobre todo el conjunto de datos.
-- Se graficaron junto a los valores reales para comparar su comportamiento y ajuste visualmente.
-
----
-
-### 12. Ensemble de modelos
-- Se implementó un **ensemble simple (promedio)** combinando las predicciones de los tres modelos.
-- Este enfoque aprovecha las fortalezas de cada modelo individual, buscando reducir el error general y lograr un pronóstico más robusto.
-
----
-
-### 13. Evaluación con MAPE (Mean Absolute Percentage Error)
-Se calculó el **MAPE** para los cuatro modelos (incluyendo el ensemble) y para las dos variables objetivo. Los resultados fueron:
+### Selección final
+El **modelo Ensemble** (promedio de los tres modelos) fue el seleccionado por mostrar el **menor MAPE** en validación.
 
 | Target       | Ridge  | SARIMAX | Prophet | Ensemble |
 |--------------|--------|---------|---------|----------|
-| **Facturación** | 138.12 | 178.08  | 139.33  | 124.56   |
-| **Saldo**       | 126.88 | 115.04  | 135.32  | 85.29    |
+| Facturación  | 138.12 | 178.08  | 139.33  | **124.56** |
+| Saldo        | 126.88 | 115.04  | 135.32  | **85.29** |
 
 Ninguno de los modelos logró alcanzar el objetivo de un error inferior al 10%. Esto se debe principalmente a la **limitada cantidad de datos históricos disponibles**.  
 Los errores podrían reducirse si se implementan:
@@ -292,11 +148,7 @@ Estas estrategias no se aplicaron en esta fase debido al tiempo limitado y al ca
 
 ---
 
-### 14. Almacenamiento del pipeline
-Todo el pipeline resultante para los cuatro modelos optimizados se almacenó en formato **.pkl**, permitiendo su reutilización en futuras etapas del proyecto.
-
-
-## Evaluación de Escenarios
+## 7. Evaluación de escenarios
 
 Tras la generación de los pronósticos se procede a evaluar el cumplimiento de los hitos definidos para el negocio en el escenario Base, así como analizar la evolución de los escenarios Pesimista y Alterno. La comparación se realiza para las dos variables objetivo: **Facturación** y **Saldo**.
 
@@ -344,7 +196,11 @@ Para la variable **Facturación**, el modelo Prophet es el único que logra cump
 
 ---
 
-### Conclusiones finales de los escenarios (Modelo Ensemble)
+## 8. Interpretación final
+
+<p align="center">
+  <img src="img/output_esc.png" alt="Resultados de proyecciones">
+</p>
 
 El análisis detallado de los escenarios se realiza a partir del **modelo Ensemble**, seleccionado por presentar el **menor error MAPE** durante el entrenamiento y validación cruzada. Las principales conclusiones son:
 
@@ -360,20 +216,9 @@ El análisis detallado de los escenarios se realiza a partir del **modelo Ensemb
 - **Alterno:** La mayor contracción, hasta -14.5 % en marzo de 2026, con recuperación posterior, cerrando 2027 en -7 %.
 - **Base:** Evolución similar al pesimista, con caídas suaves pero persistentes (entre -7 % y -5.6 %), cerrando 2027 en -7 %.
 
-#### Interpretación general
-- **Comportamiento divergente:** La **Facturación crece en todos los escenarios**, mientras que el **Saldo permanece en terreno negativo**.
-- **Alta incertidumbre:** Los escenarios evidencian vulnerabilidad en la evolución del saldo y la dependencia de la facturación frente a las condiciones macroeconómicas (especialmente en 2026).
-- Es fundamental incorporar más información y variables exógenas en futuras iteraciones para reducir la incertidumbre y mejorar la capacidad predictiva.
+#### Conclusión final
+- **Divergencia estructural:** Mientras la facturación crece en todos los escenarios, el saldo sigue en terreno negativo.
+- **Alta incertidumbre:** 2026 se identifica como un año crítico en términos de vulnerabilidad, especialmente en el escenario alterno.
+- **Próximos pasos:** Incorporar más variables exógenas y ampliar el histórico para reducir la incertidumbre y mejorar la capacidad predictiva de los modelos.
 
 ---
-
-
-
-
- 
-
-
-
-
-
-

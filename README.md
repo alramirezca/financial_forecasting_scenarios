@@ -1,28 +1,43 @@
-# Pronóstico Trimestral de Cuentas Financieras – Tuya (2025–2027)
+# Pronóstico Trimestral de Cuentas Financieras (2025–2027)
 
 ## 1. Introducción
-Este proyecto tiene como propósito desarrollar y aplicar **modelos de pronóstico trimestral** para las cuentas de **Facturación** y **Saldo** de Tuya durante el período **2025–2027**.
 
-Estos pronósticos forman parte de las pruebas de resistencia presentadas anualmente ante la **Superintendencia Financiera de Colombia**, con el objetivo de evaluar la resiliencia de la compañía frente a escenarios económicos adversos y asegurar su **estabilidad, solvencia y liquidez**.
+Este proyecto tiene como objetivo el desarrollo y aplicación de **modelos de pronóstico trimestral** para las cuentas de **Facturación** y **Saldo** de una entidad financiera durante el período **2025–2027**.  
 
-De manera complementaria, se exploran metodologías avanzadas de estimación para **incrementar la precisión de los modelos** y reducir los errores por debajo del 10%, mejorando el cumplimiento de los requisitos regulatorios.
+Estos pronósticos forman parte de las **pruebas de resistencia (stress testing)** que las entidades financieras deben presentar anualmente ante la **Superintendencia Financiera de Colombia**. Dichas pruebas buscan evaluar la **capacidad de resiliencia** de las organizaciones frente a escenarios económicos adversos, asegurando que puedan mantener su **estabilidad, solvencia y liquidez** en contextos desfavorables.
+
+El ejercicio plantea la generación de proyecciones trimestrales considerando tres escenarios definidos por la regulación:
+
+- **Escenario Base**
+- **Escenario Adverso**
+- **Escenario Alterno**
+
+Estos escenarios incorporan **impactos macroeconómicos relevantes** que permiten diferenciar claramente la evolución proyectada de cada cuenta bajo distintas condiciones, siguiendo la relación esperada:
+
+> **Escenario Base > Escenario Adverso > Escenario Alterno**
+
+Las proyecciones se construyen a partir de dos fuentes principales:  
+
+- **BASE:** Información histórica interna de las cuentas de negocio.  
+- **MACROS:** Indicadores macroeconómicos.  
+
+Para garantizar la calidad de los resultados, se aplican **técnicas avanzadas de modelado y estimación**, con el propósito de incrementar la precisión de los pronósticos, fortaleciendo así el cumplimiento de los requisitos regulatorios.
 
 ---
 
 ## 2. Alcance del proyecto
-El trabajo se centra en la generación de pronósticos para las cuentas de **Facturación** y **Saldo** bajo tres escenarios macroeconómicos:
 
-- **Base**
-- **Pesimista**
-- **Alterno**
-
-Estos escenarios consideran impactos relevantes en variables macroeconómicas y permiten evaluar la trayectoria financiera futura de la compañía.
+El proyecto se enfoca en la generación de pronósticos trimestrales para las cuentas de **Facturación** y **Saldo**, considerando tres trayectorias macroeconómicas: **Base**, **Pesimista** y **Alterno**.  
+Estos escenarios buscan evaluar el comportamiento financiero esperado bajo diferentes condiciones económicas, identificando riesgos y oportunidades en el horizonte 2025–2027.
 
 ### Expectativas clave del comité
-- **+25 %** en la facturación de diciembre de 2027 respecto a diciembre de 2024.
-- **−3 %** en la facturación de junio de 2026 respecto a diciembre de 2025.
-- **−3 %** en la facturación de junio de 2027 respecto a diciembre de 2026.
-- **+15 %** en el saldo de diciembre de 2027 respecto a diciembre de 2024.
+
+- **+25 %** en la facturación de diciembre de 2027 respecto a diciembre de 2024.  
+- **−3 %** en la facturación de junio de 2026 respecto a diciembre de 2025.  
+- **−3 %** en la facturación de junio de 2027 respecto a diciembre de 2026.  
+- **+15 %** en el saldo de diciembre de 2027 respecto a diciembre de 2024.  
+
+Estas metas servirán como referencia para evaluar el desempeño de los modelos y la consistencia de los escenarios proyectados.
 
 ---
 
